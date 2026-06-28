@@ -1,11 +1,11 @@
-Render Deployment (render branch)
+### Render Deployment (render branch)
 
 The render branch is used exclusively for cloud deployment on Render. It contains only two files:
 
 - Dockerfile — tells Docker how to run the JAR
 - Pre-built .jar — committed directly (no build step in CI)
 
-How it works
+### How it works
 
 Render is configured via the dashboard:
 - Branch: render
@@ -13,7 +13,7 @@ Render is configured via the dashboard:
 
 When a new commit is pushed to the render branch, Render detects it (by default), runs docker build using the Dockerfile, and redeploys the service.
 
-Updating the deployment
+### Updating the deployment
 
 1. Build the JAR locally:
 mvn clean package -DskipTests
