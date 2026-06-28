@@ -17,5 +17,6 @@ When a new commit is pushed to the render branch, Render detects it (by default)
 
 1. Build the JAR locally:
 mvn clean package -DskipTests
-2. Switch to the render branch and copy the new JAR
+2. Move generated .jar outside repo
+2. Switch to the render branch and copy the new JAR (moved outside repo before switvh)
 3. Push to origin render
