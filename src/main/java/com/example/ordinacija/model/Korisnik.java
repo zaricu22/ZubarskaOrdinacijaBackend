@@ -7,13 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-
-/**
- * The persistent class for the korisnik database table.
- * 
- */
 @Entity
-@Table(name = "korisnik", schema = "zubarska_ordinacija")
+@Table(name = "korisnik", schema = "public")
 @NamedQuery(name="Korisnik.findAll", query="SELECT k FROM Korisnik k")
 public class Korisnik implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +22,6 @@ public class Korisnik implements Serializable {
 
 	private String tipKorisnika;
 
-	//bi-directional many-to-one association to Pregled
 	@OneToMany(mappedBy="korisnik")
 	@JsonIgnore
 	private List<Termin> pregleds;
@@ -43,52 +37,19 @@ public class Korisnik implements Serializable {
 		this.tipKorisnika = tipKorisnika;
 	}
 
-
-
-	public String getIdentifikacioniBroj() {
-		return identifikacioniBroj;
-	}
-
-	public void setIdentifikacioniBroj(String identifikacioniBroj) {
-		this.identifikacioniBroj = identifikacioniBroj;
-	}
-
-	public String getIme() {
-		return ime;
-	}
-
-	public void setIme(String ime) {
-		this.ime = ime;
-	}
-
-	public String getPrezime() {
-		return prezime;
-	}
-
-	public void setPrezime(String prezime) {
-		this.prezime = prezime;
-	}
-
-	public String getTipKorisnika() {
-		return tipKorisnika;
-	}
-
-	public void setTipKorisnika(String tipKorisnika) {
-		this.tipKorisnika = tipKorisnika;
-	}
-
-	public List<Termin> getPregleds() {
-		return pregleds;
-	}
-
-	public void setPregleds(List<Termin> pregleds) {
-		this.pregleds = pregleds;
-	}
+	public String getIdentifikacioniBroj() { return identifikacioniBroj; }
+	public void setIdentifikacioniBroj(String identifikacioniBroj) { this.identifikacioniBroj = identifikacioniBroj; }
+	public String getIme() { return ime; }
+	public void setIme(String ime) { this.ime = ime; }
+	public String getPrezime() { return prezime; }
+	public void setPrezime(String prezime) { this.prezime = prezime; }
+	public String getTipKorisnika() { return tipKorisnika; }
+	public void setTipKorisnika(String tipKorisnika) { this.tipKorisnika = tipKorisnika; }
+	public List<Termin> getPregleds() { return pregleds; }
+	public void setPregleds(List<Termin> pregleds) { this.pregleds = pregleds; }
 
 	@Override
 	public String toString() {
-		return "Korisnik [identifikacioniBroj=" + identifikacioniBroj + ", ime=" + ime + ", prezime=" + prezime
-				+ ", tipKorisnika=" + tipKorisnika + "]";
+		return "Korisnik [identifikacioniBroj=" + identifikacioniBroj + ", ime=" + ime + ", prezime=" + prezime + ", tipKorisnika=" + tipKorisnika + "]";
 	}
-
 }
